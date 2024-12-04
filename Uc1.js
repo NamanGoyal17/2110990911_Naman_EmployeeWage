@@ -3,39 +3,63 @@ function checkattendence(){
     //Generate a random number
     let employee = Math.floor(Math.random()*11);
     if(employee < 1){
-        console.log("Employee is Absent");
+        var status = false;
     }
     else{
-        console.log("Employee is Present");
-        calculatewage();
+        var status = true;
     }
+    return status;
 }
-checkattendence();
+var ans = checkattendence();
+if(ans){
+    console.log("Employee is Present");
+}
+else{
+    console.log("Employee is absent");
+}
 
 // Use to calculate the daily wage
-function calculatewage(){
-    // const array of valid numbers
-    const numbers = [0,1,4,8];
+function getrandomValue(){
+    const numbers = [0,4,8];
     const randomIndex = Math.floor(Math.random()*numbers.length);
-    let hour = numbers[randomIndex];
-    //console.log(hour);
-    let Totalwage = 0;
-    switch (hour){
-        case 0:
-            Totalwage = 0;
-            console.log("He did not do work "+ Totalwage);
-            break;
-        case 1:
-            Totalwage = Totalwage+20;
-            console.log("He is per hour worker and his salary is : " + Totalwage );
-            break;
-        case 4:
-            Totalwage = Totalwage +(4*20);
-            console.log ("He is a part time worker and his salary is: "+Totalwage);
-            break;
-        case 8:
-            Totalwage = Totalwage + (8*20);
-            console.log ("He is a full time worker and his salary is: "+ Totalwage);
-            break;
-    }
+    return numbers[randomIndex];
 }
+function calculatewage(){
+    const hour = getrandomValue();
+    let Totalwage = 0;
+    if(ans){
+        switch (hour){
+            case 0:
+                Totalwage = 0;
+                //console.log("He did not do work "+ Totalwage);
+                break;
+            case 1:
+                Totalwage = Totalwage+20;
+                //console.log("He is per hour worker and his salary is : " + Totalwage );
+                break;
+            case 4:
+                Totalwage = Totalwage +(4*20);
+                //console.log ("He is a part time worker and his salary is: "+Totalwage);
+                break;
+            case 8:
+                Totalwage = Totalwage + (8*20);
+                //console.log ("He is a full time worker and his salary is: "+ Totalwage);
+                break;
+        }
+    }
+    return {Totalwage,hour};
+}
+//console.log(calculatewage());
+
+
+//Refactor the Code to write a function to get work hours
+function totalhour(){
+    let Totalhour = 0;
+    let {Totalwage,hour}=calculatewage(); 
+    if(ans){
+        Totalhour = hour;
+    }
+    return Totalhour;
+}
+console.log("The total daily working hour "+totalhour());
+
