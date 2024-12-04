@@ -59,7 +59,20 @@ function totalhour(){
     if(ans){
         Totalhour = hour;
     }
-    return Totalhour;
+    return {Totalwage,Totalhour};
 }
-console.log("The total daily working hour "+totalhour());
+//console.log("The total daily working hour "+totalhour().Totalhour);
 
+//Calculating Wages for a Month assuming 20 Working Days in a Month
+function monthlywage(){
+    let monthlywage = 0;
+    let monthlyhour = 0;
+    let {Totalwage,Totalhour} = totalhour();
+    
+    for(let i=0;i<20;i++){
+        monthlywage = monthlywage + Totalwage;
+        monthlyhour = monthlyhour + Totalhour;
+    }
+    return {monthlywage,monthlyhour};
+}
+console.log(monthlywage());
