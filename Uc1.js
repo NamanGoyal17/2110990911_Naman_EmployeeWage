@@ -76,3 +76,25 @@ function monthlywage(){
     return {monthlywage,monthlyhour};
 }
 console.log(monthlywage());
+
+/*
+Calculate Wages till a
+condition of total
+working hours of 160 or
+max days of 20 is
+reached for a month
+*/
+function monthlyusingwhile(){
+    let i = 0;
+    let totalmonthlywage = 0;
+    let totalmonthlyhour = 0;
+    let {Totalwage,Totalhour} = totalhour();
+    while(i<20){
+        totalmonthlywage = totalmonthlywage + Totalwage;
+        totalmonthlyhour = totalmonthlyhour + Totalhour;
+        i++;
+    }
+    console.log(totalmonthlyhour);
+    console.log(totalmonthlywage);
+}
+monthlyusingwhile();
