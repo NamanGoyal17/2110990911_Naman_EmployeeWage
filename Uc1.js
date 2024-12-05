@@ -64,7 +64,7 @@ function totalhour(){
 //console.log("The total daily working hour "+totalhour().Totalhour);
 
 //Calculating Wages for a Month assuming 20 Working Days in a Month
-function monthlywage(){
+function monthlywage(month){
     let monthlywage = 0;
     let monthlyhour = 0;
     let {Totalwage,Totalhour} = totalhour();
@@ -73,9 +73,9 @@ function monthlywage(){
         monthlywage = monthlywage + Totalwage;
         monthlyhour = monthlyhour + Totalhour;
     }
-    return {monthlywage,monthlyhour};
+    return {month,monthlywage,monthlyhour};
 }
-console.log(monthlywage());
+//console.log(monthlywage());
 
 /*
 Calculate Wages till a
@@ -84,17 +84,46 @@ working hours of 160 or
 max days of 20 is
 reached for a month
 */
-function monthlyusingwhile(){
-    let i = 0;
-    let totalmonthlywage = 0;
-    let totalmonthlyhour = 0;
-    let {Totalwage,Totalhour} = totalhour();
-    while(i<20){
-        totalmonthlywage = totalmonthlywage + Totalwage;
-        totalmonthlyhour = totalmonthlyhour + Totalhour;
-        i++;
+// function monthlyusingwhile(){
+//     let i = 0;
+//     let totalmonthlywage = 0;
+//     let totalmonthlyhour = 0;
+//     let {Totalwage,Totalhour} = totalhour();
+//     while(i<20){
+//         totalmonthlywage = totalmonthlywage + Totalwage;
+//         totalmonthlyhour = totalmonthlyhour + Totalhour;
+//         i++;
+//     }
+//     console.log(totalmonthlyhour);
+//     console.log(totalmonthlywage);
+// }
+// monthlyusingwhile();
+
+// Yearly salary of worker
+
+const month = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+];
+
+function yearlysalary() {
+    let employee_monthlywage = [];
+    for(let i=0;i<12;i++){
+        const salary = monthlywage(month[i])
+        //salary.month = month[i];
+        employee_monthlywage.push(salary);
     }
-    console.log(totalmonthlyhour);
-    console.log(totalmonthlywage);
+
+    return employee_monthlywage;
 }
-monthlyusingwhile();
+console.log(yearlysalary());
