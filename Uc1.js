@@ -1,3 +1,4 @@
+const prompt = require('prompt-sync')();
 // Use to Calculate Attenddence
 function checkattendence(){
     //Generate a random number
@@ -127,4 +128,18 @@ function yearlysalary() {
     return employee_monthlywage;
     //
 }
-console.log(yearlysalary());
+//console.log(yearlysalary());
+
+// uc7 now add employee
+let data = []
+function addemployee(){
+    const n = parseInt(prompt("Enter the number of emplyees: "));
+    for(let i=1;i<=n;i++){
+        const name =prompt("Enter the name of the employee: ");
+        data.push(name);
+        data.push(yearlysalary());
+        
+    }
+    return data;
+}
+console.log(addemployee());
