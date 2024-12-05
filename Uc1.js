@@ -64,7 +64,7 @@ function totalhour(){
 //console.log("The total daily working hour "+totalhour().Totalhour);
 
 //Calculating Wages for a Month assuming 20 Working Days in a Month
-function monthlywage(month){
+function monthlywage(){
     let monthlywage = 0;
     let monthlyhour = 0;
     let {Totalwage,Totalhour} = totalhour();
@@ -73,7 +73,7 @@ function monthlywage(month){
         monthlywage = monthlywage + Totalwage;
         monthlyhour = monthlyhour + Totalhour;
     }
-    return {month,monthlywage,monthlyhour};
+    return {monthlywage,monthlyhour};
 }
 //console.log(monthlywage());
 
@@ -84,46 +84,20 @@ working hours of 160 or
 max days of 20 is
 reached for a month
 */
-// function monthlyusingwhile(){
-//     let i = 0;
-//     let totalmonthlywage = 0;
-//     let totalmonthlyhour = 0;
-//     let {Totalwage,Totalhour} = totalhour();
-//     while(i<20){
-//         totalmonthlywage = totalmonthlywage + Totalwage;
-//         totalmonthlyhour = totalmonthlyhour + Totalhour;
-//         i++;
-//     }
-//     console.log(totalmonthlyhour);
-//     console.log(totalmonthlywage);
-// }
-// monthlyusingwhile();
-
-// Yearly salary of worker
-
-const month = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-];
-
-function yearlysalary() {
-    let employee_monthlywage = [];
-    for(let i=0;i<12;i++){
-        const salary = monthlywage(month[i])
-        //salary.month = month[i];
-        employee_monthlywage.push(salary);
+function monthlyusingwhile(){
+    let i = 0;
+    let totalmonthlywage = 0;
+    let totalmonthlyhour = 0;
+    let {Totalwage,Totalhour} = totalhour();
+    while(i<20){
+        totalmonthlywage = totalmonthlywage + Totalwage;
+        totalmonthlyhour = totalmonthlyhour + Totalhour;
+        i++;
     }
-
-    return employee_monthlywage;
+    console.log(totalmonthlyhour);
+    console.log(totalmonthlywage);
 }
-console.log(yearlysalary());
+monthlyusingwhile();
+
+
+
