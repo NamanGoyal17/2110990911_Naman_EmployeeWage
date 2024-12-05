@@ -142,4 +142,14 @@ function addemployee(){
     }
     return data;
 }
-console.log(addemployee());
+//console.log(addemployee());
+//addemployee();
+
+// uc8 find the data of employee with the help of employee name
+function find(){
+    let name = prompt("Enter the name ");
+    let index = data.indexOf(name);
+    return data[index+1];
+}
+addemployee();
+console.log(find());
