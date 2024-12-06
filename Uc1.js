@@ -13,10 +13,10 @@ function checkattendence(){
 }
 var ans = checkattendence();
 if(ans){
-    console.log("Employee is Present");
+    //console.log("Employee is Present");
 }
 else{
-    console.log("Employee is absent");
+    //console.log("Employee is absent");
 }
 
 // Use to calculate the daily wage
@@ -134,11 +134,12 @@ function yearlysalary() {
 let data = []
 function addemployee(){
     const n = parseInt(prompt("Enter the number of emplyees: "));
-    for(let i=1;i<=n;i++){
+    for(let i=0;i<n;i++){
+        let id = parseInt(prompt("Enter the id "));
+        data.push(id);
         const name =prompt("Enter the name of the employee: ");
         data.push(name);
-        data.push(yearlysalary());
-        
+        data.push(yearlysalary());  
     }
     return data;
 }
@@ -152,4 +153,21 @@ function find(){
     return data[index+1];
 }
 addemployee();
-console.log(find());
+//console.log(find());
+
+// uc9 find the data of the employee of the same name
+function findofthesamename(){
+    let name = prompt("Enter the name you want to find ");
+    const hasDuplicates = data.some((names, index, data) => data.indexOf(names) !== index);
+    if(hasDuplicates){
+        console.log("There is a multiple employee of name "+name+" so please");
+        let id = parseInt(prompt("Enter the id of the employee "))
+        let index = data.indexOf(id);
+        return data[index+2];
+    }
+    else{
+        let index = data.indexOf(name);
+        return data[index+1];
+    }   
+}
+console.log(findofthesamename());
