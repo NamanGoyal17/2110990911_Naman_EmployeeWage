@@ -46,5 +46,5 @@ The `addEmployee` Function calculates and store the total salary, worked hours a
 The `find` functions first takes the name of the employee as a input from the user and then it shows all the details of the employee stored in the array.
 
 ## Use Case 9 - Get data Of a Month (Solution For Duplicate Name)
-### Date - 05-12-2024
+### Date - 06-12-2024
 The `findofthesamename` functions first check the multiple users data by a boolean variable and then fetch the employee data according user input and for that the function is using `Array.filter()` method and returns the data according to input.
